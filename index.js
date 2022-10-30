@@ -14,7 +14,6 @@ function buildRequest(API_ENDPOINT) {
 }
 
 function getEmail() {
-    debugger;
     const email = document.getElementById('email').value;
     return email;
 }
