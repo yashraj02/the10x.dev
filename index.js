@@ -1,26 +1,27 @@
-const {API_ENDPOINT} = require('./constants');
+import { API_ENDPOINT } from './constants';
 
 function sendUserData() {
-    const pixelTag = document.createElement('img');
     const requestUrl = buildRequest(API_ENDPOINT);
+    const pixelTag = document.createElement('img');
     pixelTag.src = requestUrl;
+    document.body.appendChild(pixelTag);
 }
 
 function buildRequest(API_ENDPOINT) {
     const userEmail = getEmail();
     const todaysDate = getTodaysDate();
-    return `${API_ENDPOINT}?email=${userEmail}&date=${todaysDate}`;
+    return `${API_ENDPOINT}?email='${userEmail}'&date='${todaysDate}'`;
 }
 
 function getEmail() {
-    const email = document.getElementById('email');
     debugger;
-    // return email.valu
+    const email = document.getElementById('email').value;
+    return email;
 }
 
 function getTodaysDate() {
     /** Format in yyyy-mm-dd */
-    let todaysDate = new Date().todaysDate.toISOString().split('T')[0];
+    let todaysDate = new Date().toISOString().split('T')[0];
     return todaysDate;
 }
 
